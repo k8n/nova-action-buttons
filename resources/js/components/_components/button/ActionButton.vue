@@ -92,7 +92,6 @@
     // Computed
     // Get action button classes
     const actionButtonClasses = computed(() => [
-        'flex-shrink-0',
         'inline-flex', 'items-center', 'flex-shrink-0',
         'focus:outline-none', 'focus:ring',
         'shadow', 'text-sm', 'px-2', 'mx-1', 'h-9',
