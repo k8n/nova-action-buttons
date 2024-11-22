@@ -68,7 +68,19 @@
             title: title?.value,
             class: [
                 ...(asToolbarButton?.value === true ? toolbarButtonClasses.value : actionButtonClasses.value),
-                ...(customClasses.value || [])
+                ...(
+                    customClasses.value
+                    || (
+                        asToolbarButton?.value === true
+                            ? [ 'hover:text-primary-500' ]
+                            : [
+                                'rounded', 'font-bold',
+                                'text-white', 'dark:text-gray-800'
+                                'ring-primary-200', 'dark:ring-gray-600',
+                                'bg-primary-500', 'hover:bg-primary-400', 'active:bg-primary-600'
+                            ]
+                   )
+                )
             ],
             style: {
                 ...(asToolbarButton?.value === true ? null : actionButtonStyles?.value),
@@ -80,15 +92,16 @@
     // Computed
     // Get action button classes
     const actionButtonClasses = computed(() => [
-        'flex-shrink-0', 'shadow', 'rounded', 'focus:outline-none', 'ring-primary-200', 'dark:ring-gray-600',
-        'focus:ring', 'bg-primary-500', 'hover:bg-primary-400', 'active:bg-primary-600',
-        'text-white', 'dark:text-gray-800', 'inline-flex', 'items-center', 'font-bold', 'px-2', 'mx-1', 'h-9', 'text-sm', 'flex-shrink-0',
+        'flex-shrink-0',
+        'inline-flex', 'items-center', 'flex-shrink-0',
+        'focus:outline-none', 'focus:ring',
+        'shadow', 'text-sm', 'px-2', 'mx-1', 'h-9',
     ])
 
     // Computed
     // Get toolbar button classes
     const toolbarButtonClasses = computed(() => [
-        'toolbar-button', 'hover:text-primary-500', 'px-2', 'v-popper--has-tooltip', 'w-10'
+        'toolbar-button', 'px-2', 'v-popper--has-tooltip', 'w-10'
     ])
 
     // Computed
